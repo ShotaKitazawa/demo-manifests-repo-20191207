@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mybot
+  namespace: default
+  labels:
+    app: mybot
+    deployDate: dummy
+    commitHash: dummy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mybot
+  template:
+    metadata:
+      labels:
+        app: mybot
+        deployDate: dummy
+        commitHash: dummy
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: mybot
+          image: kanatakita/bot-demo-20191207:latest
+          imagePullPolicy: Always
+          env:
+            - name: TZ
+              value: Asia/Tokyo
+          envFrom:
+          - secretRef:
+              name: mybot

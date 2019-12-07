@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mybot
+  namespace: argo-cd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ShotaKitazawa/demo-manifests-repo-20191207
+    targetRevision: HEAD
+    path: mybot
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

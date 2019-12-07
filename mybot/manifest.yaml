@@ -6,7 +6,7 @@ metadata:
   labels:
     app: mybot
     deployDate: 2019-12-07
-    commitHash: 6df17c3
+    commitHash: 593e9dd
 spec:
   replicas: 1
   selector:
@@ -17,12 +17,12 @@ spec:
       labels:
         app: mybot
         deployDate: 2019-12-07
-        commitHash: 6df17c3
+        commitHash: 593e9dd
     spec:
       restartPolicy: Always
       containers:
         - name: mybot
-          image: kanatakita/bot-demo-20191207:6df17c3
+          image: kanatakita/bot-demo-20191207:593e9dd
           imagePullPolicy: Always
           env:
             - name: TZ
